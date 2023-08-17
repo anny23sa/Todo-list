@@ -1,4 +1,3 @@
-/*Variables Globales*/
 
 const listaDeActividades = document.querySelector("#actividades")
 const actividadInput = document.querySelector("#nuevaActividad")
@@ -23,7 +22,7 @@ function listar(arrays = actividades) {
                  <div class="col-2"><button onclick="borrar(${array.id})" class="btn-eli"> Eliminar </button></div>
                  </div>`
     }
-    //realizadas = arrays.filter(x=>x.completada == true).length;
+
     listaDeActividades.innerHTML = html;
     spanTotal.innerHTML = actividades.length
     spanTerminadas.innerHTML = terminadas
@@ -41,7 +40,6 @@ function terminar(id) {
     console.log("tarea: ", actividades[index].actividad)
     console.log("completado: ", actividades[index].completada)
    
-    //cambiar el valor de la propiedad completada de false a true
     actividades[index].completada ? actividades[index].completada = false : actividades[index].completada = true
     console.log("completado: ", actividades[index].completada);
     listar()
@@ -53,7 +51,6 @@ function ObtenerIdRandom(max) {
 
 btnAgregar.addEventListener("click", () => {
 
-    /*agregar tarea al arreglo*/
     const nuevaActividad = actividadInput.value;
     if (nuevaActividad == ""){
         alert("Debe agregar una nueva actividad");
@@ -62,9 +59,7 @@ btnAgregar.addEventListener("click", () => {
         actividades.push({ id: ObtenerIdRandom(100), actividad: nuevaActividad , completada: false});
         actividadInput.value = "";
     }
-    
-
-    /*Actualizando inf.html*/
+//Actualiza Html    
     listar()
 })
 
